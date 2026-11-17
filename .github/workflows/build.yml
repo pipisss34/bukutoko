@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    tags: ['v*']
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,3 +20,11 @@ jobs:
         with:
           name: BukuToko-apk
           path: app/build/outputs/apk/release/*.apk
+      - name: Buat GitHub Release (hanya saat push tag v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp app/build/outputs/apk/release/app-release.apk "BukuToko-${{ github.ref_name }}.apk"
+          gh release create "${{ github.ref_name }}" "BukuToko-${{ github.ref_name }}.apk" \
+            --title "Buku Toko ${{ github.ref_name }}" --generate-notes
