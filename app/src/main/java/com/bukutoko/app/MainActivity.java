@@ -183,6 +183,28 @@ public class MainActivity extends Activity {
     }
 
     class Bridge {
+
+        @JavascriptInterface
+        public void saveText(String text, String name) {
+            try {
+                ContentValues v = new ContentValues();
+                v.put(MediaStore.MediaColumns.DISPLAY_NAME, safe(name));
+                v.put(MediaStore.MediaColumns.MIME_TYPE, "application/json");
+                v.put(MediaStore.MediaColumns.RELATIVE_PATH, "Download/BukuToko");
+                v.put(MediaStore.MediaColumns.IS_PENDING, 1);
+                Uri u = getContentResolver().insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, v);
+                if (u == null) throw new Exception("tidak bisa membuat file");
+                try (OutputStream os = getContentResolver().openOutputStream(u)) {
+                    os.write(text.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+                }
+                v.clear();
+                v.put(MediaStore.MediaColumns.IS_PENDING, 0);
+                getContentResolver().update(u, v, null, null);
+                toast("Cadangan tersimpan di Download/BukuToko");
+            } catch (Exception e) {
+                toast("Gagal menyimpan: " + e.getMessage());
+            }
+        }
         @JavascriptInterface
         public void saveImage(String dataUrl, String name) {
             try {

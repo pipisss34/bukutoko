@@ -241,7 +241,9 @@ html[data-tema] .ph{border:1px solid var(--bd2);border-radius:12px}
   <div class="card" style="margin-top:14px">
     <h2>Cadangan data</h2>
     <p style="margin:8px 0;font-size:13px">Data tersimpan di HP ini. Salin cadangan berkala supaya aman kalau aplikasi dihapus.</p>
-    <div class="row"><button id="exp">Salin</button><button class="w" id="imp">Pulihkan</button></div>
+    <div class="row" style="flex-wrap:wrap"><button id="exp">Salin cadangan</button><button class="w" id="expF">Simpan ke file</button></div>
+    <div class="row" style="flex-wrap:wrap;margin-top:8px"><button class="w" id="imp">Pulihkan dari teks</button><button class="w" id="impF">Pilih file</button></div>
+    <input id="impFile" type="file" class="hide">
     <textarea id="bk" class="hide" rows="5" style="margin-top:10px"></textarea>
     <button class="r" id="reset" style="margin-top:12px">Hapus semua data</button>
   </div>
@@ -519,8 +521,8 @@ $('sShare').onclick=async()=>{
 };
 let sText='';
 function strukText(M){return M.map(c=>c.t==='c'?c.a:c.t==='kv'?c.a+': '+c.b:c.t==='tx'?c.a:c.t==='lr'?c.a+'  '+c.b:c.t==='big'?'TOTAL  '+c.b:c.t==='sep'?'--------------------':'').filter(x=>x!=='').join('\n')}
-function cp2(t){const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(a);a.focus();a.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}a.remove();alert(ok?'Teks struk disalin. Tempel di WhatsApp atau pesan.':'Gagal menyalin. Gunakan screenshot.')}
-function copyT(t){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>alert('Teks struk disalin. Tempel di WhatsApp atau pesan.'),()=>cp2(t));return}}catch(e){}cp2(t)}
+function cp2(t){const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(a);a.focus();a.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}a.remove();alert(ok?'Teks disalin. Tempel di WhatsApp atau pesan.':'Gagal menyalin. Gunakan screenshot.')}
+function copyT(t){try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>alert('Teks disalin. Tempel di WhatsApp atau pesan.'),()=>cp2(t));return}}catch(e){}cp2(t)}
 $('sCopy').onclick=()=>copyT(sText);
 $('sWa').onclick=()=>{window.open('https://wa.me/?text='+encodeURIComponent(sText),'_blank')};
 $('sSave').onclick=()=>{
@@ -535,6 +537,27 @@ $('sShare').onclick=async()=>{
     if(navigator.share){await navigator.share({title:'Struk',text:sText});return}
   }catch(e){if(e&&e.name==='AbortError')return}
   copyT(sText)};
+function restoreFrom(t){
+  try{const d=JSON.parse(t);if(!d.items||!d.log)throw 0;
+    if(!confirm('Pulihkan data dari cadangan? Data di HP ini akan diganti.'))return;
+    S=d;S.set=Object.assign({name:'',logo:'',c1:'#c4f04d',c2:'#ff7f9f'},S.set||{});
+    save();theme();applyTema();$('sName').value=S.set.name;$('c1').value=S.set.c1;$('c2').value=S.set.c2;render();alert('Data dipulihkan')
+  }catch(e){alert('Cadangan tidak valid')}
+}
+function dlFile(name,text){
+  if(window.TokoApp){
+    if(typeof TokoApp.saveText==='function'){TokoApp.saveText(text,name)}
+    else alert('Versi aplikasi ini belum mendukung simpan file. Perbarui aplikasi, atau pakai Salin cadangan.');
+    return;
+  }
+  try{const b=new Blob([text],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),30000)}
+  catch(e){alert('Simpan file tidak didukung di sini. Pakai Salin cadangan.')}
+}
+$('exp').onclick=()=>{const t=JSON.stringify(S);$('bk').classList.remove('hide');$('bk').value=t;copyT(t)};
+$('expF').onclick=()=>dlFile('bukutoko-cadangan-'+today()+'.json',JSON.stringify(S));
+$('impF').onclick=()=>$('impFile').click();
+$('impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const fr=new FileReader();fr.onload=()=>restoreFrom(fr.result);fr.onerror=()=>alert('File tidak bisa dibaca');fr.readAsText(f);e.target.value=''};
+$('imp').onclick=()=>{const b=$('bk');if(b.classList.contains('hide')){b.classList.remove('hide');b.value='';b.placeholder='Tempel cadangan di sini, lalu tekan Pulihkan dari teks lagi';return}restoreFrom(b.value)};
 let kId=null,kEd=false;
 $('kQ').oninput=()=>{const it=S.items.find(x=>x.id===kId);if(it&&!kEd&&it.b)$('kH').value=Math.round((+$('kQ').value||0)*it.b)};
 $('kH').oninput=()=>{kEd=true};
