@@ -184,6 +184,32 @@ public class MainActivity extends Activity {
 
     class Bridge {
 
+        WebView keepPrint;
+
+        @JavascriptInterface
+        public void printImage(final String dataUrl, final String name, final int widthMm) {
+            runOnUiThread(() -> {
+                final String job = safe(name);
+                final boolean[] done = {false};
+                final WebView pw = new WebView(MainActivity.this);
+                keepPrint = pw;
+                pw.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public void onPageFinished(WebView v, String url) {
+                        if (done[0]) return;
+                        done[0] = true;
+                        android.print.PrintManager pm = (android.print.PrintManager)
+                                getSystemService(android.content.Context.PRINT_SERVICE);
+                        pm.print(job, v.createPrintDocumentAdapter(job), null);
+                    }
+                });
+                String w = widthMm > 0 ? widthMm + "mm" : "100%";
+                String html = "<html><head><style>@page{margin:0}body{margin:0}img{display:block;width:"
+                        + w + "}</style></head><body><img src=\"" + dataUrl + "\"></body></html>";
+                pw.loadDataWithBaseURL(null, html, "text/html", "utf-8", null);
+            });
+        }
+
         @JavascriptInterface
         public void saveText(String text, String name) {
             try {
