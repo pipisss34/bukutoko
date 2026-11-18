@@ -295,8 +295,17 @@ html[data-tema="persona"] .card.k2 button.w,html[data-tema="persona"] .card[styl
 
 <section id="v-struk" class="hide">
   <div class="row sp"><button class="w" id="stBack">← Kembali</button><h2>Struk dan nota</h2></div>
-  <div class="seg" id="stMode" style="margin-top:14px"><button data-m="ppob" class="on">Struk PPOB</button><button data-m="nota">Nota belanja</button></div>
+  <div class="seg" id="stMode" style="margin-top:14px"><button data-m="ppob" class="on">Struk PPOB</button><button data-m="nota">Nota belanja</button><button data-m="riw">Riwayat</button></div>
   <div class="card" id="stPpob" style="margin-top:14px">
+    <label style="margin-top:0">Pelanggan terdaftar</label>
+    <div class="row" style="align-items:stretch">
+      <div style="flex:1;position:relative">
+        <input id="pcIn" placeholder="Cari nama atau nomor..." autocomplete="off">
+        <div id="pcList" class="hide" style="position:absolute;left:0;right:0;top:100%;z-index:20;max-height:40vh;overflow:auto;background:var(--card);color:var(--ink);border:2px solid var(--ink)"></div>
+      </div>
+      <button id="pcAdd" aria-label="Daftarkan pelanggan" style="flex:none;padding:8px 18px;font-size:22px">+</button>
+    </div>
+    <div style="height:12px"></div>
     <label style="margin-top:0">Jenis</label>
     <select id="pJ"><option>Pulsa</option><option>Paket data</option><option>Token listrik</option><option>Tagihan listrik</option><option>PDAM</option><option>BPJS</option><option>Internet / TV</option><option>PPOB lainnya</option></select>
     <label>Nomor tujuan / ID pelanggan</label><input id="pN" inputmode="numeric" placeholder="mis. 0812xxxxxxx">
@@ -304,6 +313,10 @@ html[data-tema="persona"] .card.k2 button.w,html[data-tema="persona"] .card[styl
     <label>Harga total (Rp)</label><input id="pH" type="number" inputmode="numeric" placeholder="0">
     <label>No. token / SN (opsional)</label><input id="pT" placeholder="mis. token 20 digit">
     <label>Nama pelanggan (opsional)</label><input id="pK">
+  </div>
+  <div class="card hide" id="stRiw" style="margin-top:14px">
+    <input id="rwQ" placeholder="Cari riwayat (nama, nomor, jenis)...">
+    <div id="rwList" style="margin-top:8px"></div>
   </div>
   <div class="card hide" id="stNota" style="margin-top:14px">
     <label style="margin-top:0">Nama pembeli (opsional)</label><input id="nB">
@@ -398,6 +411,15 @@ html[data-tema="persona"] .card.k2 button.w,html[data-tema="persona"] .card[styl
 <dialog id="ldlg"><h2 id="lT">Sesuaikan uang laci</h2><p style="margin:8px 0">Di aplikasi: <b id="lA"></b></p><label>Uang asli di laci (Rp)</label><input id="lN" type="number" inputmode="numeric"><p style="font-size:14px;margin:8px 0 0">Selisihnya dicatat otomatis di Buku Kas sebagai Koreksi laci.</p><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="lX">Batal</button><button id="lOk">Simpan</button></div></dialog>
 <dialog id="kdlg"><h2 id="kT">Kulak</h2><label>Jumlah masuk</label><input id="kQ" type="number" inputmode="numeric"><label>Total harga kulak (Rp)</label><input id="kH" type="number" inputmode="numeric"><p style="font-size:14px;margin:8px 0 0" id="kI"></p><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="kX">Batal</button><button id="kOk">Simpan</button></div></dialog>
 <dialog id="sdlg"><h2>Struk siap</h2><div style="max-height:55vh;overflow:auto;margin:10px 0"><img id="sImg" alt="Struk" style="width:100%;display:block"></div><div class="row" style="flex-wrap:wrap"><button id="sSave">Simpan gambar</button><button class="w" id="sShare">Bagikan</button><button class="w" id="sCopy">Salin teks</button><button class="w" id="sWa">WhatsApp (teks)</button><button class="w" id="sX">Tutup</button></div><p style="font-size:14px;margin:10px 0 0">Kalau tombol gambar tidak berfungsi di HP-mu, pakai Salin teks atau WhatsApp (teks), atau ambil screenshot.</p></dialog>
+<dialog id="pcdlg"><h2>Pelanggan PPOB</h2>
+  <label>Jenis</label><select id="rJ"></select>
+  <label>Nama pelanggan</label><input id="rN">
+  <label>Nomor tujuan / ID</label><input id="rNo" inputmode="numeric">
+  <div class="row" style="margin-top:12px"><button id="rSave" style="flex:1">Simpan</button><button class="w" id="rX">Tutup</button></div>
+  <label style="margin-top:16px">Daftar pelanggan (ketuk untuk ubah)</label>
+  <input id="rQ" placeholder="Cari di daftar...">
+  <div id="rList" style="max-height:30vh;overflow:auto;margin-top:6px"></div>
+</dialog>
 <dialog id="dldlg"><h2 id="dlT"></h2><p id="dlP" style="margin:8px 0"></p><select id="dlSel"></select><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="dlX">Batal</button><button id="dlOk">Hapus</button></div></dialog>
 <dialog id="tedlg"><h2>Ubah jumlah tabungan</h2><p style="margin:8px 0">Sekarang: <b id="teA"></b></p><label>Jumlah baru (Rp)</label><input id="teN" type="number" inputmode="numeric"><p style="font-size:14px;margin:8px 0 0">Selisihnya dicatat otomatis di riwayat sebagai Koreksi jumlah.</p><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="teX">Batal</button><button id="teOk">Simpan</button></div></dialog>
 <div class="tut hide" id="tut"><div class="card"><div class="em" id="tE"></div><h2 id="tH"></h2><p id="tP"></p><div class="dots" id="tD"></div><div class="row sp"><button class="w" id="tSkip">Lewati</button><button id="tNext">Lanjut →</button></div></div></div>
@@ -657,7 +679,7 @@ $('stMake').onclick=()=>{
       if(manual>0)addLog(ket,manual,0,0,{lc:$('stLc').value});
     }else addLog(ket,total,0,0,{lc:$('stLc').value});
   }
-  render();showStruk(M,fn);
+  logStruk(M,fn,total,ket);render();showStruk(M,fn);
 };
 $('sX').onclick=()=>$('sdlg').close();
 $('sSave').onclick=()=>{const a=document.createElement('a');a.href=sUrl;a.download=sName+'.png';document.body.appendChild(a);a.click();a.remove()};
@@ -808,6 +830,73 @@ $('dlOk').onclick=()=>{
   }
   save();$('dldlg').close();cfgR();render();
 };
+const pdb=()=>S.ppobDb||(S.ppobDb={});
+const pcAll=()=>{const a=[];Object.keys(pdb()).forEach(j=>pdb()[j].forEach(c=>a.push({id:c.id,nama:c.nama,no:c.no,j})));return a};
+function pcFilter(q){q=(q||'').trim().toLowerCase();return pcAll().filter(c=>!q||c.nama.toLowerCase().includes(q)||String(c.no).includes(q)).sort((a,b)=>a.nama.localeCompare(b.nama))}
+function pcPick(c){$('pJ').value=c.j;$('pN').value=c.no;$('pK').value=c.nama;$('pcIn').value=c.nama;$('pcList').classList.add('hide')}
+function pcRender(){
+  const L=$('pcList');L.innerHTML='';const arr=pcFilter($('pcIn').value);
+  if(!arr.length){const d=document.createElement('div');d.style.padding='10px';d.textContent=pcAll().length?'Tidak ditemukan':'Belum ada pelanggan. Tekan + untuk mendaftarkan.';L.appendChild(d);return}
+  arr.forEach(c=>{const d=document.createElement('div');d.style.cssText='padding:10px 12px;border-bottom:1px solid #8884;cursor:pointer';
+    d.innerHTML='<b></b><small style="display:block;text-transform:none;font-size:14px;opacity:.85"></small>';
+    d.querySelector('b').textContent=c.nama;d.querySelector('small').textContent=c.no+' · '+c.j;
+    d.onclick=()=>pcPick(c);L.appendChild(d)});
+}
+$('pcIn').onfocus=()=>{pcRender();$('pcList').classList.remove('hide')};
+$('pcIn').oninput=()=>{pcRender();$('pcList').classList.remove('hide')};
+document.addEventListener('click',e=>{if(!e.target.closest('#pcIn')&&!e.target.closest('#pcList'))$('pcList').classList.add('hide')});
+$('rJ').innerHTML=$('pJ').innerHTML;
+let rId=null,rJ0=null;
+function rListR(){
+  const L=$('rList');L.innerHTML='';const arr=pcFilter($('rQ').value);
+  if(!arr.length){L.textContent='Belum ada data.';return}
+  arr.forEach(c=>{const d=document.createElement('div');d.className='item';d.style.cursor='pointer';
+    d.innerHTML='<div class="nm"><b></b><small style="text-transform:none;font-size:14px"></small></div><button class="r" data-x="1">✕</button>';
+    d.querySelector('b').textContent=c.nama;d.querySelector('small').textContent=c.no+' · '+c.j;
+    d.onclick=e=>{
+      if(e.target.dataset.x){if(confirm('Hapus '+c.nama+' dari daftar?')){pdb()[c.j]=pdb()[c.j].filter(x=>x.id!==c.id);save();rListR();pcRender()}return}
+      rId=c.id;rJ0=c.j;$('rJ').value=c.j;$('rN').value=c.nama;$('rNo').value=c.no;$('rSave').textContent='Simpan perubahan'};
+    L.appendChild(d)});
+}
+$('rQ').oninput=rListR;
+$('pcAdd').onclick=()=>{rId=null;rJ0=null;$('rSave').textContent='Simpan';$('rJ').value=$('pJ').value;$('rN').value=$('pK').value;$('rNo').value=$('pN').value;$('rQ').value='';rListR();$('pcdlg').showModal()};
+$('rX').onclick=()=>$('pcdlg').close();
+$('rSave').onclick=()=>{
+  const j=$('rJ').value,n=$('rN').value.trim(),no=$('rNo').value.trim();
+  if(!n||!no){alert('Isi nama dan nomor');return}
+  const db=pdb();db[j]=db[j]||[];let c;
+  if(rId){const old=db[rJ0]||[],i=old.findIndex(x=>x.id===rId);c=i>=0?old.splice(i,1)[0]:{id:rId};c.nama=n;c.no=no;db[j].push(c)}
+  else{if(db[j].some(x=>x.no===no)&&!confirm('Nomor ini sudah terdaftar di jenis yang sama. Tetap simpan?'))return;c={id:uid(),nama:n,no};db[j].push(c)}
+  save();pcPick({id:c.id,nama:n,no,j});
+  rId=null;rJ0=null;$('rN').value='';$('rNo').value='';$('rSave').textContent='Simpan';rListR();pcRender();
+};
+function logStruk(M,fn,total,ket){
+  S.struk=S.struk||[];
+  S.struk.push({id:uid(),w:Date.now(),mode:stM,ket,total,fn,M});
+  if(S.struk.length>300)S.struk=S.struk.slice(-300);
+  save();stHistR();
+}
+function stHistR(){
+  const L=$('rwList');if(!L)return;L.innerHTML='';
+  const q=$('rwQ').value.trim().toLowerCase(),all=S.struk||[];
+  const arr=all.slice().reverse().filter(x=>!q||x.ket.toLowerCase().includes(q));
+  if(!arr.length){L.textContent=all.length?'Tidak ditemukan.':'Belum ada riwayat. Struk yang dibuat akan muncul di sini.';return}
+  arr.forEach(x=>{
+    const d=document.createElement('div');d.className='item';d.style.cursor='pointer';
+    const dt=new Date(x.w).toLocaleString('id-ID',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    d.innerHTML='<div class="nm"><b></b><small style="text-transform:none;font-size:14px"></small></div><b></b>';
+    const bs=d.querySelectorAll('b');bs[0].textContent=x.ket;bs[1].textContent=rp(x.total);
+    d.querySelector('small').textContent=dt+' · '+(x.mode==='nota'?'Nota belanja':'PPOB');
+    d.onclick=()=>showStruk(x.M,x.fn||'struk');
+    L.appendChild(d)});
+}
+$('rwQ').oninput=stHistR;
+$('stMode').onclick=e=>{const m=e.target.dataset.m;if(!m)return;stM=m;
+  document.querySelectorAll('#stMode button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+  $('stPpob').classList.toggle('hide',m!=='ppob');$('stNota').classList.toggle('hide',m!=='nota');
+  $('stRiw').classList.toggle('hide',m!=='riw');
+  $('stMake').closest('.card').classList.toggle('hide',m==='riw');
+  if(m==='riw')stHistR()};
 let kId=null,kEd=false;
 $('kQ').oninput=()=>{const it=S.items.find(x=>x.id===kId);if(it&&!kEd&&it.b)$('kH').value=Math.round((+$('kQ').value||0)*it.b)};
 $('kH').oninput=()=>{kEd=true};
