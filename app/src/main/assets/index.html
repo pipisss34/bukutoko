@@ -102,18 +102,132 @@ html[data-tema] .card small,html[data-tema] label{text-transform:none;letter-spa
 .ph{width:64px;height:64px;border:2px solid var(--ink);display:grid;place-items:center;overflow:hidden;flex:none;font-size:26px;background:var(--card)}.ph img{width:100%;height:100%;object-fit:cover}
 html[data-tema] .ph{border:1px solid var(--bd2);border-radius:12px}
 .card>b.v{display:block}
+html[data-tema="sage"]:root{--bg:#c9d6bd;--card:#fbf5e9;--ink:#27342b;--mu:#5d6b60;--line:#0000;--bad:#c4452f;--bd2:#27342b1a;--sh:0 8px 22px #3b5a4126;--sep:#27342b22;--w:#ecebdc;--wb:#0000;--in:#f4eede;--pu:#e07b45;color-scheme:light}
+html[data-tema="ceria"]:root{--bg:#f1f2f7;--card:#ffffff;--ink:#16161d;--mu:#6b6f80;--line:#0000;--bad:#e5484d;--bd2:#16161d0f;--sh:0 6px 20px #16161d14;--sep:#16161d14;--w:#eef0f6;--wb:#0000;--in:#f6f7fb;--pu:#ff7a1a;color-scheme:light}
+html[data-tema="biru"]:root{--bg:#eaf1fb;--card:#ffffff;--ink:#12306b;--mu:#5a75a8;--line:#0000;--bad:#d9455f;--bd2:#2f6fe426;--sh:0 8px 24px #2f6fe430;--sep:#2f6fe422;--w:#e4eeff;--wb:#2f6fe433;--in:#f3f7ff;--pu:#2f6fe4;color-scheme:light}
+html[data-tema="piksel"]:root{--bg:#fbf3e4;--card:#fffdf7;--ink:#2a2340;--mu:#6a6288;--line:#b9a6f040;--bad:#d6335f;--bd2:#2a2340;--sh:none;--sep:#2a2340;--w:#fffdf7;--wb:#2a2340;--in:#fffdf7;--pu:#9b86ec;color-scheme:light}
+html[data-tema="imut"]:root{--bg:#fdeef3;--card:#ffffff;--ink:#2d2150;--mu:#7a6a9a;--line:#0000;--bad:#e0457b;--bd2:#2d215014;--sh:0 8px 22px #c76aa233;--sep:#2d215018;--w:#f5eefc;--wb:#0000;--in:#fff7fa;--pu:#a58be8;color-scheme:light}
+html[data-tema="sage"] body{background-image:radial-gradient(circle at 100% 0,#fbf5e980,transparent 50%),radial-gradient(circle at 0 100%,#a9bd9a66,transparent 50%);background-size:auto;background-attachment:fixed}
+html[data-tema="imut"] body{background-image:radial-gradient(circle at 100% 0,#e9ddff,transparent 45%),radial-gradient(circle at 0 100%,#ffdbe8,transparent 45%);background-size:auto;background-attachment:fixed}
+html[data-tema="biru"] body{background-image:radial-gradient(circle at 100% 0,#cfe0ff,transparent 45%);background-size:auto;background-attachment:fixed}
+html[data-tema="sage"] .card,html[data-tema="imut"] .card{border-radius:26px}
+html[data-tema="ceria"] .card,html[data-tema="biru"] .card{border-radius:24px}
+html[data-tema="piksel"] body{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:22px 22px;background-attachment:scroll}
+html[data-tema="piksel"] .card{border:3px solid var(--ink);box-shadow:4px 4px 0 var(--pu);border-radius:0}
+html[data-tema="piksel"] button{border:3px solid var(--ink);border-radius:0;box-shadow:3px 3px 0 var(--ink);text-transform:uppercase}
+html[data-tema="piksel"] button:active{transform:translate(3px,3px);box-shadow:none}
+html[data-tema="piksel"] button.w{border:3px solid var(--ink)}
+html[data-tema="piksel"] button.r{border:0;box-shadow:none;text-transform:none}
+html[data-tema="piksel"] .seg button{border:3px solid var(--ink);margin-left:-3px;box-shadow:none}
+html[data-tema="piksel"] .seg button:first-child{margin-left:0}
+html[data-tema="piksel"] input,html[data-tema="piksel"] select,html[data-tema="piksel"] textarea{border:3px solid var(--ink);border-radius:0}
+html[data-tema="piksel"] .lg{border:3px solid var(--ink);box-shadow:3px 3px 0 var(--ink);border-radius:0}
+html[data-tema="piksel"] .tabs{border-top:3px solid var(--ink);border-radius:0;box-shadow:none;padding:0 0 env(safe-area-inset-bottom,0px);gap:0}
+html[data-tema="piksel"] .tabs button{border:0;border-right:3px solid var(--ink);border-radius:0;box-shadow:none;padding:15px 4px}
+html[data-tema="piksel"] .tabs button:last-child{border-right:0}
+html[data-tema="piksel"] dialog{border:3px solid var(--ink);box-shadow:6px 6px 0 var(--pu);border-radius:0}
+html[data-tema="piksel"] .item{border-bottom:2px dashed var(--ink)}
+html[data-tema="piksel"] .item:last-child{border:0}
+html[data-tema="piksel"] th,html[data-tema="piksel"] td{border-bottom:1px solid var(--ink)}
+html[data-tema="piksel"] td:first-child{border-right:2px solid var(--bad)}
+html[data-tema="piksel"] thead th{border-bottom:3px solid var(--ink)}
+html[data-tema="piksel"] tfoot th{border-top:3px solid var(--ink)}
+html[data-tema="piksel"] .dots i{border:3px solid var(--ink);border-radius:0;width:14px;height:14px;background:var(--card)}
+html[data-tema="piksel"] .dots i.on{background:var(--c2)}
+html[data-tema="piksel"] .tag{border:2px solid var(--ink);border-radius:0}
+html[data-tema="piksel"] .ph{border:2px solid var(--ink);border-radius:0}
+html[data-tema="piksel"] h2,html[data-tema="piksel"] .ti b{text-transform:uppercase}
+html[data-tema="piksel"] .card small,html[data-tema="piksel"] label{text-transform:uppercase;letter-spacing:.5px}
+html[data-tema="sage"] body,html[data-tema="ceria"] body,html[data-tema="biru"] body,html[data-tema="imut"] body{padding-bottom:112px}
+html[data-tema="sage"] .tabs,html[data-tema="ceria"] .tabs,html[data-tema="biru"] .tabs,html[data-tema="imut"] .tabs{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));border-radius:30px;padding:6px}
+html[data-tema="imut"] button[id]:not(.w):not(.r):not([data-c]){background:linear-gradient(135deg,var(--c1),var(--c2))}
+html[data-tema="sage"] body{font-family:Georgia,"Times New Roman",serif}
+html[data-tema="sage"] .card{border:0;border-radius:36px 10px 36px 10px;padding:16px}
+html[data-tema="sage"] button{border-radius:16px 4px 16px 4px}
+html[data-tema="sage"] .tabs{box-shadow:0 8px 24px #3b5a4133}
+html[data-tema="sage"] h2{font-size:20px}
+html[data-tema="sage"] h2::before{content:"\1F33F";margin-right:6px}
+html[data-tema="ceria"] button[id]:not(.w):not(.r):not([data-c]){background:#16161d;color:#fff}
+html[data-tema="ceria"] .tabs{background:#16161d;box-shadow:0 12px 28px #0004}
+html[data-tema="ceria"] .tabs button{color:#fff}
+html[data-tema="ceria"] .tabs button.on{background:var(--c1);color:#111}
+html[data-tema="ceria"] .card{border-radius:32px;padding:16px}
+html[data-tema="ceria"] h2{font-size:22px;font-weight:900}
+html[data-tema="ceria"] .card b.v{font-weight:900;letter-spacing:-.5px}
+html[data-tema="biru"] .card{background:linear-gradient(160deg,#4f8ef7,#2457d6);color:#fff;border:0;border-radius:26px;box-shadow:inset 0 1px 0 #ffffff66,0 12px 26px #2f6fe44d}
+html[data-tema="biru"] .card.k2{background:var(--c2);color:#111}
+html[data-tema="biru"] .card .in{color:#d3f26a}
+html[data-tema="biru"] .card .out{color:#ffc2cf}
+html[data-tema="biru"] .card.k2 .in{color:#1a8a4a}
+html[data-tema="biru"] .card svg{color:#fff}
+html[data-tema="biru"] .card label{color:#ffffffd9}
+html[data-tema="biru"] .card .item{border-bottom:1px solid #ffffff40}
+html[data-tema="biru"] .card .item:last-child{border:0}
+html[data-tema="biru"] .card th,html[data-tema="biru"] .card td{border-bottom:1px solid #ffffff40}
+html[data-tema="biru"] .card button:not(.w):not(.r):not([data-th]):not([data-p]):not([data-c]):not([data-m]):not([data-sw]){background:#fff;color:#2457d6}
+html[data-tema="biru"] .sw button{box-shadow:0 0 0 2px #fff}
+html[data-tema="biru"] .card button.w{background:#ffffff26;color:#fff;border:1px solid #ffffff55}
+html[data-tema="biru"] .card button.r{color:#ffc2cf}
+html[data-tema="biru"] .tabs{background:linear-gradient(160deg,#4f8ef7,#2457d6);box-shadow:0 10px 26px #2f6fe455}
+html[data-tema="biru"] .tabs button{color:#fff}
+html[data-tema="biru"] .tabs button.on{background:#fff;color:#2457d6}
+html[data-tema="piksel"] body{font-family:ui-monospace,"SF Mono","Courier New",monospace}
+html[data-tema="piksel"] .card{border:0;border-radius:0;margin:3px;box-shadow:0 -3px 0 0 var(--ink),0 3px 0 0 var(--ink),-3px 0 0 0 var(--ink),3px 0 0 0 var(--ink),8px 8px 0 0 var(--pu)}
+html[data-tema="piksel"] .card::before{content:"\25A0\25A1\D7";display:block;margin:-12px -12px 10px;padding:2px 8px;background:var(--pu);color:#fff;font-size:12px;letter-spacing:4px;text-align:right;line-height:18px}
+html[data-tema="piksel"] .card[style*="padding:0"]::before{display:none}
+html[data-tema="piksel"] button{border:0;box-shadow:0 -3px 0 0 var(--ink),0 3px 0 0 var(--ink),-3px 0 0 0 var(--ink),3px 0 0 0 var(--ink),6px 6px 0 0 var(--ink)}
+html[data-tema="piksel"] button.w{border:0}
+html[data-tema="piksel"] button.r{box-shadow:none}
+html[data-tema="imut"] .card{border:2px dashed #f0a6c4;border-radius:26px;box-shadow:5px 5px 0 #f7d3e2}
+html[data-tema="imut"] h2::after{content:"\2661";margin-left:6px;color:var(--c1)}
+html[data-tema="imut"] .ti b::after{content:"\273F";margin-left:6px;color:var(--c1)}
+html[data-tema="imut"] .lg{border-radius:50%}
+html[data-tema="imut"] .tabs{border:2px dashed #f0a6c4;box-shadow:0 8px 22px #c76aa233}
+html[data-tema="imut"] .tabs button.on::before{content:"\2661";margin-right:4px}
+html[data-tema="biru"] .card.k2 button.w,html[data-tema="biru"] .card[style*="background"] button.w{background:#ffffffb3;color:#111;border:1px solid #0002}
+html[data-tema="biru"] .card.k2 button:not(.w):not(.r),html[data-tema="biru"] .card[style*="background"] button:not(.w):not(.r){background:#2457d6;color:#fff}
+html[data-tema="biru"] .card.k2 .out,html[data-tema="biru"] .card[style*="background"] .out{color:var(--bad)}
+html[data-tema="biru"] .card.k2 .in,html[data-tema="biru"] .card[style*="background"] .in{color:#0f6b36}
+html[data-tema="biru"] .card.k2 label,html[data-tema="biru"] .card[style*="background"] label{color:#222}
+html[data-tema="biru"] .card.k2 svg,html[data-tema="biru"] .card[style*="background"] svg{color:#111}
+html[data-tema="persona"]:root{--bg:#0a0a0a;--card:#141414;--ink:#ffffff;--mu:#cfcfcf;--line:#0000;--bad:#ff6b76;--bd2:#ffffff;--sh:none;--sep:#ffffff33;--w:#ffffff;--wb:#0000;--in:#000000;--pu:#ff2d3d;color-scheme:dark}
+html[data-tema="persona"] body{background-image:linear-gradient(115deg,transparent 58%,#e6001230 58%,#e6001230 63%,transparent 63%),linear-gradient(115deg,#e6001240 0,transparent 35%);background-size:auto;background-attachment:fixed}
+html[data-tema="persona"] .card{position:relative;background:#141414;color:#fff;border:0;border-left:8px solid var(--c1);border-radius:0;box-shadow:6px 6px 0 #ffffff1f}
+html[data-tema="persona"] .card::after{content:"";position:absolute;top:0;right:0;width:30px;height:30px;background:linear-gradient(225deg,var(--c1) 50%,transparent 50%);pointer-events:none}
+html[data-tema="persona"] .card.k2{background:var(--c2);color:#111}
+html[data-tema="persona"] h2{display:inline-block;transform:skewX(-12deg);background:var(--c1);color:#111;padding:2px 14px;font-style:italic;text-transform:uppercase;letter-spacing:1px}
+html[data-tema="persona"] .ti b{font-style:italic;text-transform:uppercase;text-shadow:3px 3px 0 var(--c1)}
+html[data-tema="persona"] button{border:0;border-radius:0;transform:skewX(-10deg);box-shadow:3px 3px 0 #fff;font-style:italic;text-transform:uppercase}
+html[data-tema="persona"] button:active{transform:skewX(-10deg) scale(.95);box-shadow:none}
+html[data-tema="persona"] button.w{background:#fff;color:#111;border:0}
+html[data-tema="persona"] button.r{background:transparent;color:var(--bad);box-shadow:none;transform:none}
+html[data-tema="persona"] .seg button{background:#fff;color:#111;border:0;margin-left:0;margin-right:4px}
+html[data-tema="persona"] .seg button.on{background:var(--c1);color:#111}
+html[data-tema="persona"] input,html[data-tema="persona"] select,html[data-tema="persona"] textarea{background:#000;color:#fff;border:2px solid #fff;border-radius:0}
+html[data-tema="persona"] .tabs{background:#000;border-top:4px solid var(--c1);border-radius:0;box-shadow:none;padding:0 0 env(safe-area-inset-bottom,0px);gap:0}
+html[data-tema="persona"] .tabs button{background:transparent;color:#fff;transform:none;box-shadow:none;border-radius:0;padding:15px 4px}
+html[data-tema="persona"] .tabs button.on{background:var(--c1);color:#111;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+html[data-tema="persona"] dialog{background:#111;color:#fff;border:3px solid #fff;border-radius:0;box-shadow:8px 8px 0 var(--c1)}
+html[data-tema="persona"] .lg{border:3px solid #fff;border-radius:0;box-shadow:4px 4px 0 var(--c1)}
+html[data-tema="persona"] .ph{border:2px solid #fff;border-radius:0}
+html[data-tema="persona"] .tag{border:0;border-radius:0}
+html[data-tema="persona"] .dots i.on{background:var(--c1)}
+html[data-tema="persona"] .in{color:#5dff9a}
+html[data-tema="persona"] .card.k2 .in,html[data-tema="persona"] .card[style*="background"] .in{color:#0f6b36}
+html[data-tema="persona"] .card.k2 .out,html[data-tema="persona"] .card[style*="background"] .out{color:#8a0010}
+html[data-tema="persona"] .card.k2 button.w,html[data-tema="persona"] .card[style*="background"] button.w{background:#111;color:#fff}
 </style>
 </head>
 <body>
 <main>
-<header class="hd"><div class="lg" id="lg"></div><div class="ti"><b id="nm"></b><small id="tg"></small></div><button id="strukBtn" style="margin-left:auto;padding:8px 12px">🧾 Struk</button></header>
+<header class="hd"><div class="lg" id="lg"></div><div class="ti"><b id="nm"></b><small id="tg"></small></div><button id="strukBtn" style="margin-left:auto;padding:8px 12px">🧾 Struk</button><button id="cfgBtn" aria-label="Atur tata letak" style="padding:8px 12px;font-size:18px">⚙️</button></header>
 
 <section id="v-home">
   <div class="grid">
-    <div class="card" style="background:var(--c1);color:#111"><small>Laci Sembako</small><b class="v" id="sisaU" style="font-size:22px">Rp 0</b><button class="w" id="lsBtn" style="margin-top:8px;padding:6px 10px">✎ Atur</button></div>
-    <div class="card"><small>Laci Jajan</small><b class="v" id="sisaJ" style="font-size:22px">Rp 0</b><button class="w" id="lsBtnJ" style="margin-top:8px;padding:6px 10px">✎ Atur</button></div>
-    <div class="card k2"><small>Laci Rokok</small><b class="v" id="sisaR" style="font-size:22px">Rp 0</b><button class="w" id="lsBtnR" style="margin-top:8px;padding:6px 10px">✎ Atur</button></div>
-    <div class="card"><small>Tabungan 🔒</small><b class="v" style="font-size:22px">Rp ******</b><button id="tabBtn" style="margin-top:8px;padding:6px 10px">Masuk →</button></div>
+    <div id="lcCards" style="display:contents"></div>
+    
+    
+    <div class="card" id="tabCard"><small>Tabungan 🔒</small><b class="v" style="font-size:22px">Rp ******</b><button id="tabBtn" style="margin-top:8px;padding:6px 10px">Masuk →</button></div>
     <div class="card"><small>Masuk hari ini</small><b class="v in" id="inH">Rp 0</b></div>
     <div class="card k2"><small>Keluar hari ini</small><b class="v" id="outH">Rp 0</b></div>
     <div class="card" style="grid-column:1/-1"><small>Laba penjualan bulan ini</small><b class="v" id="laba">Rp 0</b></div>
@@ -152,7 +266,7 @@ html[data-tema] .ph{border:1px solid var(--bd2);border-radius:12px}
     </div>
     <label>Laci</label><select id="lcSel"><option value="s">Sembako</option><option value="j">Jajan</option><option value="r">Rokok</option></select>
     <label>Keterangan</label><input id="ket" placeholder="mis. kulak telur, cilok">
-    <div class="row" style="margin-top:12px;flex-wrap:wrap"><button id="simpanKas">Simpan</button><button class="w" id="modalBtn">Modal sembako</button><button class="w" id="modalBtnJ">Modal jajan</button><button class="w" id="modalBtnR">Modal rokok</button></div>
+    <div class="row" style="margin-top:12px;flex-wrap:wrap"><button id="simpanKas">Simpan</button><button class="w" id="modalBtn">Atur laci dan modal</button></div>
   </div>
   <div class="card wrap" style="margin-top:14px"><h2 style="margin-bottom:8px">Catatan harian</h2>
     <table><thead><tr><th>Tgl</th><th>Ket</th><th>Masuk</th><th>Keluar</th><th>Sisa</th><th></th></tr></thead><tbody id="tb"></tbody>
@@ -203,6 +317,22 @@ html[data-tema] .ph{border:1px solid var(--bd2);border-radius:12px}
     <label style="margin-top:0"><input type="checkbox" id="stKas" style="width:22px;height:22px;padding:0;vertical-align:-5px;margin-right:8px">Catat ke Buku Kas (nota: stok barang ikut berkurang)</label>
     <label>Masuk ke laci</label><select id="stLc"><option value="s">Sembako</option><option value="j">Jajan</option><option value="r">Rokok</option></select>
     <button id="stMake" style="margin-top:14px;width:100%">Buat struk</button>
+  </div>
+</section>
+
+<section id="v-cfg" class="hide">
+  <div class="row sp"><button class="w" id="cfBack">← Kembali</button><h2>Atur tata letak</h2></div>
+  <div class="card" style="margin-top:14px">
+    <h2>Laci uang</h2>
+    <p style="font-size:14px;margin:6px 0 0">Ganti judul dan modal awal tiap laci, atau tambah laci baru. Kalau laci dihapus, catatan dan kategorinya dipindah ke laci lain.</p>
+    <div id="cfLaci" style="margin-top:10px"></div>
+    <button id="cfAddL" style="margin-top:8px">+ Tambah laci</button>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h2>Kategori barang</h2>
+    <p style="font-size:14px;margin:6px 0 0">Tiap kategori masuk ke satu laci. Uang dari barang yang terjual mengikuti laci kategorinya.</p>
+    <div id="cfCat" style="margin-top:10px"></div>
+    <button id="cfAddC" style="margin-top:8px">+ Tambah kategori</button>
   </div>
 </section>
 
@@ -268,6 +398,7 @@ html[data-tema] .ph{border:1px solid var(--bd2);border-radius:12px}
 <dialog id="ldlg"><h2 id="lT">Sesuaikan uang laci</h2><p style="margin:8px 0">Di aplikasi: <b id="lA"></b></p><label>Uang asli di laci (Rp)</label><input id="lN" type="number" inputmode="numeric"><p style="font-size:14px;margin:8px 0 0">Selisihnya dicatat otomatis di Buku Kas sebagai Koreksi laci.</p><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="lX">Batal</button><button id="lOk">Simpan</button></div></dialog>
 <dialog id="kdlg"><h2 id="kT">Kulak</h2><label>Jumlah masuk</label><input id="kQ" type="number" inputmode="numeric"><label>Total harga kulak (Rp)</label><input id="kH" type="number" inputmode="numeric"><p style="font-size:14px;margin:8px 0 0" id="kI"></p><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="kX">Batal</button><button id="kOk">Simpan</button></div></dialog>
 <dialog id="sdlg"><h2>Struk siap</h2><div style="max-height:55vh;overflow:auto;margin:10px 0"><img id="sImg" alt="Struk" style="width:100%;display:block"></div><div class="row" style="flex-wrap:wrap"><button id="sSave">Simpan gambar</button><button class="w" id="sShare">Bagikan</button><button class="w" id="sCopy">Salin teks</button><button class="w" id="sWa">WhatsApp (teks)</button><button class="w" id="sX">Tutup</button></div><p style="font-size:14px;margin:10px 0 0">Kalau tombol gambar tidak berfungsi di HP-mu, pakai Salin teks atau WhatsApp (teks), atau ambil screenshot.</p></dialog>
+<dialog id="dldlg"><h2 id="dlT"></h2><p id="dlP" style="margin:8px 0"></p><select id="dlSel"></select><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="dlX">Batal</button><button id="dlOk">Hapus</button></div></dialog>
 <dialog id="tedlg"><h2>Ubah jumlah tabungan</h2><p style="margin:8px 0">Sekarang: <b id="teA"></b></p><label>Jumlah baru (Rp)</label><input id="teN" type="number" inputmode="numeric"><p style="font-size:14px;margin:8px 0 0">Selisihnya dicatat otomatis di riwayat sebagai Koreksi jumlah.</p><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="teX">Batal</button><button id="teOk">Simpan</button></div></dialog>
 <div class="tut hide" id="tut"><div class="card"><div class="em" id="tE"></div><h2 id="tH"></h2><p id="tP"></p><div class="dots" id="tD"></div><div class="row sp"><button class="w" id="tSkip">Lewati</button><button id="tNext">Lanjut →</button></div></div></div>
 
@@ -278,6 +409,11 @@ try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
 S=S||{modal:0,items:[],log:[]};
 S.set=Object.assign({name:'',logo:'',c1:'#c4f04d',c2:'#ff7f9f'},S.set||{});
 const $=id=>document.getElementById(id);
+function cfg(){
+  if(!S.lacis)S.lacis=[{id:'s',nama:'Laci Sembako',modal:S.modal||0},{id:'j',nama:'Laci Jajan',modal:S.modalJ||0},{id:'r',nama:'Laci Rokok',modal:S.modalR||0}];
+  if(!S.cats)S.cats=[{id:'sembako',nama:'Sembako',laci:'s'},{id:'jajan',nama:'Jajan',laci:'j'},{id:'rokok',nama:'Rokok',laci:'r'}];
+}
+cfg();
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){alert('Penyimpanan gagal. Coba kecilkan logo atau salin cadangan.')}};
 const rp=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
 const today=()=>new Date().toLocaleDateString('sv');
@@ -300,10 +436,10 @@ function render(){
   let i=0,o=0,iH=0,oH=0,lb=0;
   S.log.forEach(e=>{i+=e.i;o+=e.o;if(e.d===t){iH+=e.i;oH+=e.o}if(e.d.slice(0,7)===bln)lb+=e.l});
   const sisa=MT()+i-o;
-  $('sisaU').textContent=rp(curSisa('s'));$('sisaJ').textContent=rp(curSisa('j'));$('sisaR').textContent=rp(curSisa('r'));$('inH').textContent=rp(iH);$('outH').textContent=rp(oH);$('laba').textContent=rp(lb);
+  $('inH').textContent=rp(iH);$('outH').textContent=rp(oH);$('laba').textContent=rp(lb);
   const q=$('cari').value.toLowerCase();
   const arr=viewItems(q);
-  $('cnt').textContent='('+arr.length+')';updCats();
+  $('cnt').textContent='('+arr.length+')';updCats2();
   $('list').innerHTML=arr.length?'':'<small>'+(q?'Barang tidak ditemukan.':cat==='pop'?'Belum ada penjualan 30 hari terakhir. Barang terlaris muncul di sini otomatis.':cat==='men'?'Tidak ada barang yang menipis.':cat==='all'?'Belum ada barang. Tekan + Barang.':'Belum ada barang di kategori ini.')+'</small>';
   arr.forEach(x=>{
     const d=document.createElement('div');d.className='item'+(x.s<=3?' low':'');
@@ -319,15 +455,15 @@ function render(){
   rows.reverse().forEach(([e,r])=>{
     const tr=document.createElement('tr');
     tr.innerHTML='<td>'+dm(e.d)+'</td><td></td><td class="in">'+(e.i?rp(e.i):'')+'</td><td class="out">'+(e.o?rp(e.o):'')+'</td><td>'+rp(r)+'</td><td><button class="r" data-id="'+e.id+'">✕</button></td>';
-    tr.children[1].textContent=e.ket+(e.lc==='r'?' (rokok)':'');$('tb').appendChild(tr);
+    tr.children[1].textContent=e.ket+(lcE(e)!==S.lacis[0].id?' ('+lcNm(lcE(e))+')':'');$('tb').appendChild(tr);
   });
   $('tIn').textContent=rp(i);$('tOut').textContent=rp(o);$('tSisa').textContent=rp(sisa);
-  rekap();bonR();tot();totLc();tabR();
+  renderLaci();fillLaci();fillCats();rekap();bonR();tot();totLc2();tabR();
 }
-const MT=()=>S.modal+(S.modalJ||0)+(S.modalR||0);
-const lcOf=x=>x.cat==='rokok'?'r':x.cat==='jajan'?'j':'s';
-const lcE=e=>e.lc==='r'||e.lc==='j'?e.lc:'s';
-const curSisa=lc=>S.log.reduce((a,e)=>(!lc||lcE(e)===lc)?a+e.i-e.o:a,lc==='s'?S.modal:lc==='j'?(S.modalJ||0):lc==='r'?(S.modalR||0):MT());
+const MT=()=>S.lacis.reduce((a,L)=>a+(L.modal||0),0);
+const lcOf=x=>{const c=S.cats.find(k=>k.id===(x.cat||'sembako'));return c&&S.lacis.some(L=>L.id===c.laci)?c.laci:S.lacis[0].id};
+const lcE=e=>{const v=(!e.lc||e.lc==='u')?'s':e.lc;return S.lacis.some(L=>L.id===v)?v:S.lacis[0].id};
+const curSisa=lc=>S.log.reduce((a,e)=>(!lc||lcE(e)===lc)?a+e.i-e.o:a,lc?((S.lacis.find(L=>L.id===lc)||{}).modal||0):MT());
 const saldoL=(c,lc)=>c.log.reduce((a,e)=>lcE(e)===lc?a+(e.t==='u'?e.n:-e.n):a,0);
 const bonSum=lc=>(S.bon||[]).reduce((a,c)=>a+Math.max(0,saldoL(c,lc)),0);
 function totLc(){
@@ -344,8 +480,8 @@ function tot(){
   $('tL').textContent=rp(l);$('tS').textContent=rp(st);$('tB').textContent=rp(b);$('tot').textContent=rp(l+st+b);
 }
 let lcA='s';
-function openL(lc){lcA=lc;$('lT').textContent='Sesuaikan laci '+(lc==='r'?'Rokok':lc==='j'?'Jajan':'Sembako');$('lA').textContent=rp(curSisa(lc));$('lN').value=curSisa(lc);$('ldlg').showModal()}
-$('lsBtn').onclick=()=>openL('s');$('lsBtnJ').onclick=()=>openL('j');$('lsBtnR').onclick=()=>openL('r');
+function openL(lc){lcA=lc;$('lT').textContent='Sesuaikan '+lcNm(lc);$('lA').textContent=rp(curSisa(lc));$('lN').value=curSisa(lc);$('ldlg').showModal()}
+
 $('lX').onclick=()=>$('ldlg').close();
 $('lOk').onclick=()=>{const v=$('lN').value;if(v===''||isNaN(+v)){alert('Isi uang asli di laci');return}
   const d=Math.round(+v-curSisa(lcA));
@@ -359,7 +495,7 @@ function viewItems(q){
   if(cat==='pop'){const m=popCount();return S.items.filter(x=>m[x.id]).sort((a,b)=>m[b.id]-m[a.id]||nm(a,b)).slice(0,10)}
   if(cat==='men')return S.items.filter(x=>x.s<=3).sort(nm);
   if(cat==='all')return S.items.slice().sort(nm);
-  return S.items.filter(x=>(x.cat||'sembako')===cat).sort(nm);
+  return S.items.filter(x=>catOf(x)===cat).sort(nm);
 }
 function updCats(){
   const n=S.items.filter(x=>x.s<=3).length,m=$('fMen');
@@ -368,10 +504,23 @@ function updCats(){
 }
 $('cats').onclick=e=>{const c=e.target.dataset.c;if(!c)return;cat=c;render()};
 $('slides').onscroll=e=>{const el=e.target,i=Math.round(el.scrollLeft/el.clientWidth);document.querySelectorAll('#sdots i').forEach((d,j)=>d.classList.toggle('on',i===j))};
-const TEMA={buku:['#c4f04d','#ff7f9f'],soft:['#d4f26d','#ffc9b3'],neon:['#c8f31d','#ff8a4c']};
-function applyTema(){const t=S.set.tema||'buku',r=document.documentElement;if(t==='buku')r.removeAttribute('data-tema');else r.setAttribute('data-tema',t);
+const TEMA={
+  buku:['#c4f04d','#ff7f9f','Buku'],
+  soft:['#d4f26d','#ffc9b3','Lembut'],
+  neon:['#c8f31d','#ff8a4c','Neon'],
+  sage:['#b5cfa8','#f2a06b','Sage'],
+  persona:['#ff2d3d','#ffffff','Persona 5'],
+  ceria:['#ffa94d','#d6c7ff','Ceria'],
+  biru:['#6aa5ff','#d3f26a','Biru'],
+  piksel:['#ff9fbb','#c3b3f7','Piksel'],
+  imut:['#ffadc9','#d0bdfa','Imut']};
+(function(){const w=$('temaSeg');w.innerHTML='';w.style.flexWrap='wrap';
+  Object.keys(TEMA).forEach(k=>{const b=document.createElement('button');b.dataset.th=k;b.style.cssText='flex:none;margin:0 6px 6px 0;padding:9px 12px';
+    const mk=c=>{const s=document.createElement('span');s.style.cssText='display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:3px;vertical-align:-1px;border:1px solid #0005;background:'+c;return s};
+    b.appendChild(mk(TEMA[k][0]));b.appendChild(mk(TEMA[k][1]));b.appendChild(document.createTextNode(' '+TEMA[k][2]));w.appendChild(b)})})();
+function applyTema(){if(!TEMA[S.set.tema||'buku'])S.set.tema='buku';const t=S.set.tema||'buku',r=document.documentElement;if(t==='buku')r.removeAttribute('data-tema');else r.setAttribute('data-tema',t);
   document.querySelectorAll('#temaSeg button').forEach(b=>b.classList.toggle('on',b.dataset.th===t))}
-$('temaSeg').onclick=e=>{const t=e.target.dataset.th;if(!t)return;S.set.tema=t;S.set.c1=TEMA[t][0];S.set.c2=TEMA[t][1];$('c1').value=S.set.c1;$('c2').value=S.set.c2;save();theme();applyTema()};
+$('temaSeg').onclick=e=>{const bb=e.target.closest('button'),t=bb&&bb.dataset.th;if(!t)return;S.set.tema=t;S.set.c1=TEMA[t][0];S.set.c2=TEMA[t][1];$('c1').value=S.set.c1;$('c2').value=S.set.c2;save();theme();applyTema()};
 let fImg='';
 function pv(){$('fPv').innerHTML=fImg?'<img alt="" src="'+fImg+'">':'📷'}
 $('fF').onchange=e=>{const f=e.target.files[0];if(!f)return;const fr=new FileReader();
@@ -459,7 +608,7 @@ function nRender(){
   nTotal();
 }
 $('strukBtn').onclick=()=>{
-  ['home','kas','bon','rek','set','tab'].forEach(t=>$('v-'+t).classList.add('hide'));
+  ['home','kas','bon','rek','set','tab','cfg'].forEach(t=>$('v-'+t).classList.add('hide'));
   document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
   const sel=$('nS');sel.innerHTML='';
   S.items.slice().sort((a,b)=>a.n.localeCompare(b.n)).forEach(it=>{const o=document.createElement('option');o.value=it.id;o.textContent=it.n+' ('+rp(it.j)+')';sel.appendChild(o)});
@@ -541,7 +690,7 @@ function restoreFrom(t){
   try{const d=JSON.parse(t);if(!d.items||!d.log)throw 0;
     if(!confirm('Pulihkan data dari cadangan? Data di HP ini akan diganti.'))return;
     S=d;S.set=Object.assign({name:'',logo:'',c1:'#c4f04d',c2:'#ff7f9f'},S.set||{});
-    save();theme();applyTema();$('sName').value=S.set.name;$('c1').value=S.set.c1;$('c2').value=S.set.c2;render();alert('Data dipulihkan')
+    cfg();save();theme();applyTema();$('sName').value=S.set.name;$('c1').value=S.set.c1;$('c2').value=S.set.c2;render();alert('Data dipulihkan')
   }catch(e){alert('Cadangan tidak valid')}
 }
 function dlFile(name,text){
@@ -558,6 +707,107 @@ $('expF').onclick=()=>dlFile('bukutoko-cadangan-'+today()+'.json',JSON.stringify
 $('impF').onclick=()=>$('impFile').click();
 $('impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const fr=new FileReader();fr.onload=()=>restoreFrom(fr.result);fr.onerror=()=>alert('File tidak bisa dibaca');fr.readAsText(f);e.target.value=''};
 $('imp').onclick=()=>{const b=$('bk');if(b.classList.contains('hide')){b.classList.remove('hide');b.value='';b.placeholder='Tempel cadangan di sini, lalu tekan Pulihkan dari teks lagi';return}restoreFrom(b.value)};
+const catOf=x=>{const c=x.cat||'sembako';return S.cats.some(k=>k.id===c)?c:S.cats[0].id};
+const lcNm=id=>(S.lacis.find(L=>L.id===id)||{}).nama||'';
+function renderLaci(){
+  const w=$('lcCards');w.innerHTML='';
+  S.lacis.forEach((L,i)=>{
+    const d=document.createElement('div');d.className='card'+(i%3===2?' k2':'');
+    if(i%3===0)d.style.cssText='background:var(--c1);color:#111';
+    d.innerHTML='<small></small><b class="v" style="font-size:22px"></b><button class="w" style="margin-top:8px;padding:6px 10px">✎ Atur</button>';
+    d.querySelector('small').textContent=L.nama;
+    d.querySelector('b').textContent=rp(curSisa(L.id));
+    d.querySelector('button').onclick=()=>openL(L.id);
+    w.appendChild(d)});
+  $('tabCard').style.gridColumn=(S.lacis.length%2===0)?'1/-1':'';
+}
+function fillLaci(){['lcSel','stLc','bL'].forEach(id=>{const s=$(id),v=s.value;s.innerHTML='';
+  S.lacis.forEach(L=>{const o=document.createElement('option');o.value=L.id;o.textContent=L.nama;s.appendChild(o)});
+  if(S.lacis.some(L=>L.id===v))s.value=v})}
+function fillCats(){const s=$('fC'),v=s.value;s.innerHTML='';
+  S.cats.forEach(k=>{const o=document.createElement('option');o.value=k.id;o.textContent=k.nama;s.appendChild(o)});
+  if(S.cats.some(k=>k.id===v))s.value=v}
+function updCats2(){
+  const n=S.items.filter(x=>x.s<=3).length,bar=$('cats'),sl=bar.scrollLeft;
+  bar.innerHTML='';
+  const mk=(c,t,id)=>{const b=document.createElement('button');b.dataset.c=c;b.textContent=t;if(id)b.id=id;if(c===cat)b.classList.add('on');bar.appendChild(b);return b};
+  mk('all','Semua');mk('pop','Populer');
+  const m=mk('men','Menipis'+(n?' '+n:''),'fMen');if(n)m.style.color='var(--bad)';
+  S.cats.forEach(k=>mk(k.id,k.nama));
+  bar.scrollLeft=sl;
+}
+function totLc2(){
+  const j=S.set.nil==='j',w=$('slides'),sl=w.scrollLeft,idx=Math.round(sl/(w.clientWidth||1));
+  w.querySelectorAll('.slide.lc').forEach(x=>x.remove());
+  S.lacis.forEach(L=>{
+    const l=curSisa(L.id),st=S.items.filter(x=>lcOf(x)===L.id).reduce((a,x)=>a+x.s*(j?(x.j||0):(x.b||x.j||0)),0),b=bonSum(L.id);
+    const d=document.createElement('div');d.className='slide lc';
+    d.innerHTML='<small></small><b class="v">'+rp(l+st+b)+'</b><div class="row sp" style="margin-top:10px"><span>Uang laci</span><b>'+rp(l)+'</b></div><div class="row sp" style="margin-top:4px"><span>Nilai stok</span><b>'+rp(st)+'</b></div><div class="row sp" style="margin-top:4px"><span>Bon belum dibayar</span><b>'+rp(b)+'</b></div>';
+    d.querySelector('small').textContent=L.nama;w.appendChild(d)});
+  w.scrollLeft=sl;
+  $('sdots').innerHTML=Array.from({length:S.lacis.length+1},(_,i)=>'<i'+(i===idx?' class="on"':'')+'></i>').join('');
+}
+document.querySelectorAll('#slides .slide').forEach((s,i)=>{if(i>0)s.remove()});
+function cfgR(){
+  const wl=$('cfLaci');wl.innerHTML='';
+  S.lacis.forEach(L=>{
+    const d=document.createElement('div');d.className='item';d.style.cssText='flex-wrap:wrap';
+    d.innerHTML='<label style="margin-top:0;flex:1 1 100%">Judul laci</label><input style="flex:1 1 100%"><label style="flex:1 1 100%">Modal awal (Rp)</label><input type="number" inputmode="numeric" style="flex:1"><button class="r">Hapus</button>';
+    const ins=d.querySelectorAll('input');ins[0].value=L.nama;ins[1].value=L.modal||0;
+    ins[0].oninput=()=>{L.nama=ins[0].value;save();render()};
+    ins[1].oninput=()=>{L.modal=Math.round(+ins[1].value||0);save();render()};
+    d.querySelector('button').onclick=()=>askDel('l',L.id);
+    wl.appendChild(d)});
+  const wc=$('cfCat');wc.innerHTML='';
+  S.cats.forEach(k=>{
+    const d=document.createElement('div');d.className='item';d.style.cssText='flex-wrap:wrap';
+    d.innerHTML='<label style="margin-top:0;flex:1 1 100%">Nama kategori</label><input style="flex:1 1 100%"><label style="flex:1 1 100%">Masuk ke laci</label><select style="flex:1"></select><button class="r">Hapus</button>';
+    const inp=d.querySelector('input'),sel=d.querySelector('select');
+    inp.value=k.nama;
+    S.lacis.forEach(L=>{const o=document.createElement('option');o.value=L.id;o.textContent=L.nama;sel.appendChild(o)});
+    sel.value=k.laci;
+    inp.oninput=()=>{k.nama=inp.value;save();render()};
+    sel.onchange=()=>{k.laci=sel.value;save();render()};
+    d.querySelector('button').onclick=()=>askDel('c',k.id);
+    wc.appendChild(d)});
+}
+function openCfg(){
+  ['home','kas','bon','rek','set','tab','struk'].forEach(t=>$('v-'+t).classList.add('hide'));
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));
+  cfgR();$('v-cfg').classList.remove('hide');scrollTo(0,0);
+}
+$('cfgBtn').onclick=openCfg;
+$('cfBack').onclick=()=>document.querySelector('.tabs button[data-t="home"]').click();
+$('cfAddL').onclick=()=>{S.lacis.push({id:'l'+uid(),nama:'Laci baru',modal:0});save();cfgR();render()};
+$('cfAddC').onclick=()=>{S.cats.push({id:'c'+uid(),nama:'Kategori baru',laci:S.lacis[0].id});save();cfgR();render()};
+let delMode=null,delId=null;
+function askDel(mode,id){
+  const arr=mode==='l'?S.lacis:S.cats,it=arr.find(x=>x.id===id);
+  if(arr.length<=1){alert(mode==='l'?'Minimal harus ada satu laci':'Minimal harus ada satu kategori');return}
+  delMode=mode;delId=id;
+  $('dlT').textContent='Hapus '+it.nama+'?';
+  $('dlP').textContent=mode==='l'?'Catatan kas, bon, dan kategori di laci ini dipindah ke laci:':'Barang di kategori ini dipindah ke kategori:';
+  const s=$('dlSel');s.innerHTML='';
+  arr.filter(x=>x.id!==id).forEach(x=>{const o=document.createElement('option');o.value=x.id;o.textContent=x.nama;s.appendChild(o)});
+  $('dldlg').showModal();
+}
+$('dlX').onclick=()=>$('dldlg').close();
+$('dlOk').onclick=()=>{
+  const to=$('dlSel').value;
+  if(delMode==='l'){
+    const L=S.lacis.find(x=>x.id===delId),T=S.lacis.find(x=>x.id===to);if(!L||!T)return;
+    S.log.forEach(e=>{if(lcE(e)===L.id)e.lc=to});
+    (S.bon||[]).forEach(c=>c.log.forEach(e=>{if(lcE(e)===L.id)e.lc=to}));
+    S.cats.forEach(k=>{if(k.laci===L.id)k.laci=to});
+    T.modal=(T.modal||0)+(L.modal||0);
+    S.lacis=S.lacis.filter(x=>x!==L);
+  }else{
+    const K=S.cats.find(x=>x.id===delId);if(!K||!S.cats.some(x=>x.id===to))return;
+    S.items.forEach(x=>{if(catOf(x)===K.id)x.cat=to});
+    S.cats=S.cats.filter(x=>x!==K);if(cat===K.id)cat='all';
+  }
+  save();$('dldlg').close();cfgR();render();
+};
 let kId=null,kEd=false;
 $('kQ').oninput=()=>{const it=S.items.find(x=>x.id===kId);if(it&&!kEd&&it.b)$('kH').value=Math.round((+$('kQ').value||0)*it.b)};
 $('kH').oninput=()=>{kEd=true};
@@ -660,13 +910,11 @@ $('simpanKas').onclick=()=>{
   else addLog('Jajan: '+(k||'pribadi'),0,n,0,{lc:$('lcSel').value});
   $('nom').value='';$('ket').value='';render();
 };
-$('modalBtn').onclick=()=>{const v=prompt('Modal awal laci Sembako (Rp):',S.modal);if(v!==null&&!isNaN(+v)){S.modal=+v;save();render()}};
-$('modalBtnJ').onclick=()=>{const v=prompt('Modal awal laci Jajan (Rp):',S.modalJ||0);if(v!==null&&!isNaN(+v)){S.modalJ=+v;save();render()}};
-$('modalBtnR').onclick=()=>{const v=prompt('Modal awal laci Rokok (Rp):',S.modalR||0);if(v!==null&&!isNaN(+v)){S.modalR=+v;save();render()}};
+$('modalBtn').onclick=()=>openCfg();
 function openDlg(id){
   editId=id;const it=S.items.find(x=>x.id===id)||{n:'',s:'',j:'',b:''};
   $('dT').textContent=id?'Edit barang':'Barang baru';
-  $('fN').value=it.n;$('fS').value=it.s;$('fJ').value=it.j;$('fB').value=it.b||'';$('fC').value=it.cat||(cat==='rokok'||cat==='jajan'?cat:'sembako');fImg=it.img||'';pv();
+  $('fN').value=it.n;$('fS').value=it.s;$('fJ').value=it.j;$('fB').value=it.b||'';$('fC').value=it.cat||(S.cats.some(k=>k.id===cat)?cat:S.cats[0].id);fImg=it.img||'';pv();
   $('fDel').style.visibility=id?'visible':'hidden';$('dlg').showModal();
 }
 $('addItem').onclick=()=>openDlg(null);
@@ -680,7 +928,7 @@ $('fOk').onclick=()=>{
 $('fDel').onclick=()=>{if(confirm('Hapus barang ini?\n(Catatan jual dan kulak di Buku Kas tetap ada)')){S.items=S.items.filter(x=>x.id!==editId);save();$('dlg').close();render()}};
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
-  ['home','kas','bon','rek','set','tab','struk'].forEach(t=>$('v-'+t).classList.toggle('hide',t!==b.dataset.t));
+  ['home','kas','bon','rek','set','tab','struk','cfg'].forEach(t=>$('v-'+t).classList.toggle('hide',t!==b.dataset.t));
   scrollTo(0,0);
 });
 /* pengaturan */
@@ -690,7 +938,7 @@ $('sName').oninput=e=>{S.set.name=e.target.value;save();head()};
 $('c1').oninput=e=>{S.set.c1=e.target.value;save();theme()};
 $('c2').oninput=e=>{S.set.c2=e.target.value;save();theme()};
 [['#c4f04d','#ff7f9f'],['#ffd93d','#6ec1ff'],['#b79cff','#ffa94d'],['#7ee0a1','#ffe066'],['#ff8a80','#ffe0b2']].forEach(p=>{
-  const b=document.createElement('button');b.style.setProperty('--a',p[0]);b.style.setProperty('--b',p[1]);
+  const b=document.createElement('button');b.dataset.sw=1;b.style.setProperty('--a',p[0]);b.style.setProperty('--b',p[1]);
   b.onclick=()=>{S.set.c1=p[0];S.set.c2=p[1];$('c1').value=p[0];$('c2').value=p[1];save();theme()};
   $('sw').appendChild(b);
 });
@@ -711,7 +959,7 @@ $('imp').onclick=()=>{
   if(b.classList.contains('hide')){b.classList.remove('hide');b.value='';b.placeholder='Tempel cadangan di sini, lalu tekan Pulihkan lagi';return}
   try{const d=JSON.parse(b.value);if(!d.items||!d.log)throw 0;S=d;S.set=Object.assign({name:'',logo:'',c1:'#c4f04d',c2:'#ff7f9f'},S.set||{});save();theme();applyTema();$('sName').value=S.set.name;render();alert('Data dipulihkan')}catch(e){alert('Cadangan tidak valid')}
 };
-$('reset').onclick=()=>{if(confirm('Hapus SEMUA data?')){S={modal:0,items:[],log:[],set:S.set,seen:true};save();render()}};
+$('reset').onclick=()=>{if(confirm('Hapus SEMUA data?')){S={modal:0,items:[],log:[],set:S.set,seen:true,lacis:S.lacis.map(L=>({id:L.id,nama:L.nama,modal:0})),cats:S.cats};save();render()}};
 /* tutorial */
 const TUT=[
 ['🛒','Selamat datang!','Aplikasi ini seperti buku catatan toko. Ia menghitung stok barang, uang di laci, dan laba, jadi kamu tidak perlu menghitung manual lagi.'],
@@ -720,7 +968,7 @@ const TUT=[
 ['📒','3. Buku Kas','Untuk uang di luar barang: catat Masuk, Keluar, dan Jajan di Buku Kas. Jajan cilok dicatat sebagai Jajan supaya uang laci tetap nyambung.'],
 ['📊','4. Rekap','Tab Rekap menampilkan grafik dan tabel uang masuk, keluar, dan laba. Pilih Harian, Mingguan, Bulanan, atau Tahunan. Jenis grafik bisa diganti di Menu.'],
 ['📝','5. Buku Bon','Pelanggan ngutang? Buka tab Bon, tambah nama pelanggan, lalu tekan + Utang. Saat dia bayar, tekan Bayar: uangnya otomatis masuk ke Buku Kas. Total bon yang belum dibayar tampil di Beranda.'],
-['🏪','Tiga laci dan kategori','Laci Sembako, Jajan, dan Rokok dicatat terpisah, masing-masing punya modal awal sendiri (atur di Buku Kas). Kategori barang menentukan jualannya masuk ke laci mana. Geser kartu Total harta toko untuk melihat total semua, lalu laci Sembako, Jajan, dan Rokok satu per satu. Di daftar stok ada tombol kategori, Populer (barang paling laku), dan Menipis.'],
+['🏪','Laci dan kategori','Laci uang dicatat terpisah dan masing-masing punya modal awal sendiri (atur lewat ikon ⚙️ di kanan atas: tambah, hapus, dan ganti judul laci atau kategori). Kategori barang menentukan jualannya masuk ke laci mana. Geser kartu Total harta toko untuk melihat total semua, lalu tiap laci satu per satu. Di daftar stok ada tombol kategori, Populer (barang paling laku), dan Menipis.'],
 ['✅','6. Cek tiap malam','Hitung uang asli di laci, lalu samakan dengan angka di Beranda. Kalau beda, lihat Buku Kas untuk mencari catatan yang kelewat.'],
 ['⚙️','7. Atur sendiri','Di menu Pengaturan kamu bisa isi nama toko, pasang logo, ganti warna, dan menyalin cadangan data. Tutorial ini bisa dibuka lagi kapan saja.']
 ];
