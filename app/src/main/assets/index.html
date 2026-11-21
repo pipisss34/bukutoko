@@ -433,6 +433,7 @@ html[data-tema="persona"] .card.k2 button.w,html[data-tema="persona"] .card[styl
 <dialog id="kdlg"><h2 id="kT">Kulak</h2><label>Jumlah masuk</label><input id="kQ" type="number" inputmode="numeric"><label>Total harga kulak (Rp)</label><input id="kH" type="number" inputmode="numeric"><p style="font-size:14px;margin:8px 0 0" id="kI"></p><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="w" id="kX">Batal</button><button id="kOk">Simpan</button></div></dialog>
 <dialog id="sdlg"><h2>Struk siap</h2><div style="max-height:55vh;overflow:auto;margin:10px 0"><img id="sImg" alt="Struk" style="width:100%;display:block"></div><div class="row" style="flex-wrap:wrap"><button id="sSave">Simpan gambar</button><button class="w" id="sShare">Bagikan</button><button class="w" id="sPrint">Cetak</button><button class="w" id="sCopy">Salin teks</button><button class="w" id="sWa">WhatsApp (teks)</button><button class="w" id="sX">Tutup</button></div><p style="font-size:14px;margin:10px 0 0">Kalau tombol gambar tidak berfungsi di HP-mu, pakai Salin teks atau WhatsApp (teks), atau ambil screenshot.</p></dialog>
 <dialog id="bbdlg"><h2 id="bbT">Bon barang</h2>
+  <label>Cari barang</label><input id="bbQ" placeholder="Ketik nama barang..." autocomplete="off">
   <label>Tambah dari stok</label><div class="row"><select id="bbS"></select><button class="w" id="bbAdd" style="flex:none">+ Tambah</button></div>
   <div id="bbRows" style="margin-top:12px"></div>
   <p id="bbTot" style="font-weight:800;font-size:18px;margin:10px 0 0">Total: Rp 0</p>
@@ -1046,6 +1047,44 @@ $('sPrint').onclick=()=>{
   d.write('<html><head><style>@page{margin:0}body{margin:0}img{display:block;width:'+(mm?mm+'mm':'100%')+'}</style></head><body><img src="'+sUrl+'"></body></html>');d.close();
   setTimeout(()=>{try{f.contentWindow.focus();f.contentWindow.print()}catch(e){alert('Cetak tidak didukung di sini. Gunakan Bagikan atau Simpan gambar.')}setTimeout(()=>f.remove(),3000)},400);
 };
+function bonR(){
+  S.bon=S.bon||[];
+  const arr=S.bon.slice().sort((a,b)=>saldo(b)-saldo(a)||a.nama.localeCompare(b.nama));
+  const tot=arr.reduce((a,c)=>a+Math.max(0,saldo(c)),0);
+  $('bonT').textContent=rp(tot);$('bonT2').textContent=rp(tot);
+  const w=$('bonList');w.innerHTML='';w.style.overflowX='auto';
+  if(!arr.length){w.innerHTML='<small>Belum ada pelanggan. Tekan + Pelanggan.</small>';return}
+  const t=document.createElement('table');
+  t.innerHTML='<thead><tr><th>Nama</th><th>Laci</th><th>Nominal</th></tr></thead>';
+  const tb=document.createElement('tbody');
+  arr.forEach(c=>{
+    const s=saldo(c),tr=document.createElement('tr');tr.style.cursor='pointer';
+    const last=c.log.length?c.log[c.log.length-1].d:'';
+    const lcs=S.lacis.filter(L=>saldoL(c,L.id)>0).map(L=>L.nama);
+    tr.innerHTML='<td style="white-space:normal"></td><td style="white-space:normal"></td><td></td>';
+    const td=tr.children;
+    if(s>0){const g=document.createElement('span');g.className='tag';g.style.cssText='background:var(--bad);color:#fff;border-color:var(--bad);display:inline-block;margin:0 0 3px';g.textContent='BELUM LUNAS';td[0].appendChild(g)}
+    const b=document.createElement('b');b.style.display='block';b.textContent=c.nama;td[0].appendChild(b);
+    if(last){const sm=document.createElement('small');sm.style.cssText='display:block;text-transform:none;font-size:12px;opacity:.8';sm.textContent=last.slice(8)+'/'+last.slice(5,7)+'/'+last.slice(0,4);td[0].appendChild(sm)}
+    td[1].textContent=s>0?lcs.join(', '):'-';
+    td[2].innerHTML='<b></b>';td[2].firstChild.textContent=rp(Math.max(s,0));
+    tr.onclick=()=>openBon(c.id);tb.appendChild(tr)});
+  t.appendChild(tb);w.appendChild(t);
+}
+function bbFill(){
+  const q=$('bbQ').value.trim().toLowerCase(),s=$('bbS'),keep=s.value;s.innerHTML='';
+  S.items.filter(it=>!q||it.n.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n)).forEach(it=>{const o=document.createElement('option');o.value=it.id;o.textContent=it.n+' ('+rp(it.j)+', stok '+it.s+')';s.appendChild(o)});
+  if(!s.options.length){const o=document.createElement('option');o.value='';o.textContent='Tidak ditemukan';s.appendChild(o)}
+  else if([...s.options].some(o=>o.value===keep))s.value=keep;
+}
+$('bbQ').oninput=bbFill;
+$('bG').onclick=()=>{
+  const c=S.bon.find(x=>x.id===bonId);if(!c)return;
+  bl=[];$('bbP').value='';$('bbQ').value='';$('bbT').textContent='Bon barang: '+c.nama;
+  bbFill();bbRender();$('bbdlg').showModal();
+};
+const bbAdd0=$('bbAdd').onclick;
+$('bbAdd').onclick=()=>{bbAdd0();$('bbQ').value='';bbFill()};
 let kId=null,kEd=false;
 $('kQ').oninput=()=>{const it=S.items.find(x=>x.id===kId);if(it&&!kEd&&it.b)$('kH').value=Math.round((+$('kQ').value||0)*it.b)};
 $('kH').oninput=()=>{kEd=true};
@@ -1074,7 +1113,7 @@ function openBon(id){
   c.log.slice().reverse().forEach(e=>{const r=document.createElement('div');r.className='item';
     r.innerHTML='<div class="nm"><b></b><small>'+dm(e.d)+(e.t==='u'?' · utang':' · bayar')+'</small></div><b class="'+(e.t==='u'?'out':'in')+'">'+(e.t==='u'?'+':'−')+rp(e.n)+'</b><button class="r" data-id="'+e.id+'">✕</button>';
     r.querySelector('b').textContent=e.ket||(e.t==='u'?'Utang':'Bayar');h.appendChild(r)});
-  $('bN').value='';$('bK').value='';if(!$('bdlg').open)$('bdlg').showModal();
+  $('bN').value='';$('bK').value='';$('bL').value=(c.lastLc&&S.lacis.some(L=>L.id===c.lastLc))?c.lastLc:S.lacis[0].id;if(!$('bdlg').open)$('bdlg').showModal();
 }
 $('bH').onclick=e=>{const id=e.target.dataset.id,c=S.bon.find(x=>x.id===bonId);if(!id||!c)return;
   const en=c.log.find(x=>x.id===id);
@@ -1086,7 +1125,7 @@ function bonAdd(t){
   if(!c||!n||n<=0){alert('Isi nominal');return}
   const e={id:uid(),d:today(),t,n,ket:$('bK').value.trim(),lc:$('bL').value};
   if(t==='b'){e.k=uid();S.log.push({id:e.k,d:today(),ket:'Bayar bon '+c.nama,i:n,o:0,l:0,lc:e.lc})}
-  c.log.push(e);save();render();openBon(bonId);
+  c.lastLc=e.lc;c.log.push(e);save();render();openBon(bonId);
 }
 $('bU').onclick=()=>bonAdd('u');$('bP').onclick=()=>bonAdd('b');
 $('bX').onclick=()=>$('bdlg').close();
