@@ -341,6 +341,7 @@ html[data-tema="persona"] .card.k2 button.w,html[data-tema="persona"] .card[styl
   </div>
   <div class="card hide" id="stNota" style="margin-top:14px">
     <label style="margin-top:0">Nama pembeli (opsional)</label><input id="nB">
+    <label>Cari barang</label><input id="nQ" placeholder="Ketik nama barang..." autocomplete="off">
     <label>Tambah dari stok</label><div class="row"><select id="nS"></select><button class="w" id="nAdd" style="flex:none">+ Tambah</button></div>
     <div id="nRows" style="margin-top:12px"></div>
     <button class="w" id="nMan">+ Barang manual</button>
@@ -1085,6 +1086,15 @@ $('bG').onclick=()=>{
 };
 const bbAdd0=$('bbAdd').onclick;
 $('bbAdd').onclick=()=>{bbAdd0();$('bbQ').value='';bbFill()};
+function nFill(){
+  const q=$('nQ').value.trim().toLowerCase(),s=$('nS'),keep=s.value;s.innerHTML='';
+  S.items.filter(it=>!q||it.n.toLowerCase().includes(q)).sort((a,b)=>a.n.localeCompare(b.n)).forEach(it=>{const o=document.createElement('option');o.value=it.id;o.textContent=it.n+' ('+rp(it.j)+')';s.appendChild(o)});
+  if(!s.options.length){const o=document.createElement('option');o.value='';o.textContent='Tidak ditemukan';s.appendChild(o)}
+  else if([...s.options].some(o=>o.value===keep))s.value=keep;
+}
+$('nQ').oninput=nFill;
+const sb0=$('strukBtn').onclick;$('strukBtn').onclick=()=>{sb0();$('nQ').value='';nFill()};
+const na0=$('nAdd').onclick;$('nAdd').onclick=()=>{na0();$('nQ').value='';nFill()};
 let kId=null,kEd=false;
 $('kQ').oninput=()=>{const it=S.items.find(x=>x.id===kId);if(it&&!kEd&&it.b)$('kH').value=Math.round((+$('kQ').value||0)*it.b)};
 $('kH').oninput=()=>{kEd=true};
@@ -1096,16 +1106,6 @@ $('kOk').onclick=()=>{const it=S.items.find(x=>x.id===kId),q=Math.floor(+$('kQ')
 S.bon=S.bon||[];
 let bonId=null;
 const saldo=c=>c.log.reduce((a,e)=>a+(e.t==='u'?e.n:-e.n),0);
-function bonR(){
-  S.bon=S.bon||[];
-  const arr=S.bon.slice().sort((a,b)=>saldo(b)-saldo(a)||a.nama.localeCompare(b.nama));
-  const tot=arr.reduce((a,c)=>a+Math.max(0,saldo(c)),0);
-  $('bonT').textContent=rp(tot);$('bonT2').textContent=rp(tot);
-  $('bonList').innerHTML=arr.length?'':'<small>Belum ada pelanggan. Tekan + Pelanggan.</small>';
-  arr.forEach(c=>{const s=saldo(c),d=document.createElement('div');d.className='item';d.style.cursor='pointer';
-    d.innerHTML='<div class="nm"><b></b><small>'+(s>0?'belum lunas':'lunas')+'</small></div><b>'+rp(Math.max(s,0))+'</b>';
-    d.querySelector('b').textContent=c.nama;d.onclick=()=>openBon(c.id);$('bonList').appendChild(d)});
-}
 function openBon(id){
   bonId=id;const c=S.bon.find(x=>x.id===id);if(!c)return;
   $('bT').textContent=c.nama;$('bS').textContent=rp(Math.max(saldo(c),0));
